@@ -122,7 +122,7 @@ function init (){
             stop.style.display = "none"
             countdown.style.display = "none"
             gjlyzmBtn.addEventListener('click', () => {
-                 let day=new Date().getDay()
+                 let day=new Date().getUTCDate()
                 if(gjlyzm.value==(140+day*3) ){
                     gjlBox.style.display = "none";
                     countdown.style.display = "block";
@@ -242,7 +242,6 @@ function init (){
                 url:`https://buy.vmall.com/getSkuRushbuyInfo.json?skuIds=${skuIds}&t=${new Date().getTime()}`,
               })
                 .then(function(responseDetails) {
-                    debugger
                     if (responseDetails.status === 200) {
                         const res = responseDetails.data
                         NETWORKTIME = new Date().getTime() - getTime
